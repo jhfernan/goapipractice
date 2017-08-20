@@ -1,20 +1,20 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	// Route handlers
+	"./routes/welcome"
+	"./routes/users"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"greeting": "Hello World",
-		})
-	})
+	app := gin.Default()
+	app.Delims("<<", ">>")
+	app.LoadHTMLGlob("views/**/*")
+	// Upload routes
+	welcome.Routes(app)
+	users.Routes(app)
 
-	r.GET("/users/:name", func(c *gin.Context) {
-		name := c.Param("name")
-		c.JSON(200, gin.H{
-			"name": name,
-		})
-	})
-	r.Run()
+	// Run app
+	app.Run(":3000")
 }
