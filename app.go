@@ -3,14 +3,14 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	// Route handlers
-	"./routes/welcome"
-	"./routes/users"
+	"./app/routes/welcome"
+	"./app/routes/users"
 )
 
 func main() {
 	app := gin.Default()
 	app.Delims("<<", ">>")
-	app.LoadHTMLGlob("views/**/*")
+	app.LoadHTMLGlob("app/views/**/*")
 	// Upload routes
 	welcome.Routes(app)
 	users.Routes(app)

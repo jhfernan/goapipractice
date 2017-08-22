@@ -9,8 +9,8 @@ func Routes(routes *gin.Engine) {
 
 	// Route that returns all users
 	users.GET("", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"users": "all",
+		c.HTML(200, "users.html", gin.H{
+			"title": "Users",
 		})
 	})
 	// return name in JSON
