@@ -7,13 +7,13 @@ import (
 
 func Routes(route *gin.Engine) {
 	route.GET("/", func(c *gin.Context) {
-		c.HTML(200, "home/index.tmpl", gin.H{
+		c.HTML(200, "welcome/home.html", gin.H{
 			"title": "Hello World",
 		})
 	})
 
 	route.GET("/lol", func(c *gin.Context) {
-		c.HTML(200, "welcome/index.tmpl", gin.H{
+		c.HTML(200, "home/home.html", gin.H{
 			"title": "Hello World",
 		})
 	})
