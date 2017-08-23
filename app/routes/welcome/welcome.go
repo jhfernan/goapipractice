@@ -7,6 +7,6 @@ import (
 
 func Routes(route *gin.Engine) {
 	route.GET("/", func(c *gin.Context) {
-		c.HTML(200, "welcome.html", gin.H{ "title": "Home" })
+		c.HTML(200, "welcome/welcome", gin.H{ "frontend": true })
 	})
 }
